@@ -23,6 +23,11 @@ class TabBarController: UITabBarController {
         guard let isHidden = notification.userInfo?["isHidden"] as? Bool else { return }
         self.setTabBar(hidden: isHidden)
     }
+    
+    
+    deinit {
+       NotificationCenter.default.removeObserver(self)
+    }
 }
 
 // MARK: Tabbar UI Functions
